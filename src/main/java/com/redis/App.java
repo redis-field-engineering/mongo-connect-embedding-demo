@@ -19,7 +19,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        String connectionString = "mongodb://localhost:27017";
+        String connectionString = "mongodb://mongo:27017";
         MongoClient mongoClient = MongoClients.create(connectionString);
 
         MongoDatabase database = mongoClient.getDatabase("testdb");
