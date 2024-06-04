@@ -24,7 +24,7 @@
     "database": {
       "credentialsDirectoryPath": "/opt/redislabs/redis-connect/config/credentials",
       "databaseType": "MONGODB",
-      "databaseURL": "mongodb://mongo:27017",
+      "databaseURL": "mongodb://mongo:27017/testdb?authSource=admin",
       "customConfiguration": {
         "database.include.list": "testdb",
         "collection.include.list": "customers"
