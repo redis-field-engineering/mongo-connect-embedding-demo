@@ -38,7 +38,7 @@
         <artifactId>exec-maven-plugin</artifactId>
         <version>3.2.0</version>
         <configuration>
-          <mainClass>redis.example.App</mainClass> <!-- Replace with your package and class name -->
+          <mainClass>redis.redis.App</mainClass> <!-- Replace with your package and class name -->
         </configuration>
       </plugin>
 
