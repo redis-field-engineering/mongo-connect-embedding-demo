@@ -10,7 +10,8 @@ docker run --name mongodb -it --rm --privileged=true \
   --hostname mongo \
   -e MONGO_INITDB_ROOT_USERNAME="${db_user}" \
   -e MONGO_INITDB_ROOT_PASSWORD="${db_password}" \
-  -p 27017:27017 -d mongo mongod --replSet rs --bind_ip_all
+  -v $(pwd)/keyfile:/data/keyfile \
+  -p 27017:27017 mongo mongod --replSet rs --keyFile /data/keyfile/mongo-keyfile --bind_ip_all
 
 sleep 10
 
