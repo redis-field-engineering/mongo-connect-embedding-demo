@@ -8,6 +8,7 @@ docker run --name mongodb -it --rm --privileged=true \
   --network redis-connect \
   --name redis-mongo-connect \
   --hostname mongo \
+  -e MONGO_INITDB_DATABSE=testdb \
   -e MONGO_INITDB_ROOT_USERNAME="${db_user}" \
   -e MONGO_INITDB_ROOT_PASSWORD="${db_password}" \
   -v $(pwd)/keyfile:/data/keyfile \
