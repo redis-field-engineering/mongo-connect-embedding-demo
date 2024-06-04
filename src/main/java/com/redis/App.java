@@ -19,7 +19,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        String connectionString = "mongodb://mongo:27017";
+        String connectionString = "mongodb://redisconnect:Redis123@mongo:27017";
         MongoClient mongoClient = MongoClients.create(connectionString);
 
         MongoDatabase database = mongoClient.getDatabase("testdb");
