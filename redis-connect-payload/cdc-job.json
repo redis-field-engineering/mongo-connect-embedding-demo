@@ -1,0 +1,45 @@
+{
+  "partitions": 1,
+  "maxPartitionsPerClusterMember": 1,
+  "pipeline": {
+    "stages": [
+      {
+        "database": {
+          "credentialsDirectoryPath" : "/opt/redislabs/redis-connect/config/credentials",
+          "databaseURL": "redis://redis:12000",
+          "databaseType": "REDIS",
+          "customConfiguration": {
+            "redis.connection.sslEnabled": false,
+            "truststore": "/opt/redislabs/redis-connect/config/credentials/client-truststore.jks"
+          }
+        },
+        "index": 1,
+        "stageName": "REDIS_JSON_SINK",
+        "checkpointStageIndicator": true,
+        "metricsEnabled" : true
+      }
+    ]
+  },
+  "source": {
+    "database": {
+      "credentialsDirectoryPath": "/opt/redislabs/redis-connect/config/credentials",
+      "databaseType": "MONGODB",
+      "databaseURL": "mongodb://mongo:27017",
+      "customConfiguration": {
+        "database.include.list": "testdb",
+        "collection.include.list": "customers"
+      }
+    },
+    "tables": {
+      "testdb.customers": {
+        "initialLoad": {
+          "partitions": 1
+        },
+        "columns": [
+          {"targetColumn": "id","sourceColumn": "_id", "targetKey": true}
+        ],
+        "autoConfigColumnsEnabled": true
+      }
+    }
+  }
+}
