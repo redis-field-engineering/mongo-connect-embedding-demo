@@ -4,6 +4,8 @@ db_password="Redis123"
 
 container_name=redis-mongo-connect
 
+docker build -t mongo-repl ./mongo
+
 docker run --name mongodb -it --rm --privileged=true \
   --network redis-connect \
   --name redis-mongo-connect \
@@ -11,8 +13,7 @@ docker run --name mongodb -it --rm --privileged=true \
   -e MONGO_INITDB_DATABSE=testdb \
   -e MONGO_INITDB_ROOT_USERNAME="${db_user}" \
   -e MONGO_INITDB_ROOT_PASSWORD="${db_password}" \
-  -v $(pwd)/keyfile:/data/keyfile \
-  -p 27017:27017 -d mongo mongod --replSet rs --keyFile /data/keyfile/mongo-keyfile --bind_ip_all
+  -p 27017:27017 -d mongo-repl
 
 sleep 10
 
