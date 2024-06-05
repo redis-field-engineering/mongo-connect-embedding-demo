@@ -8,4 +8,4 @@ RUN chmod 600 /data/keyfile/mongo-keyfile && chown -R mongodb:mongodb /data/keyf
 
 EXPOSE 27017
 
-CMD ["mongod", "--replSet", "rs", "--keyFile", "/data/keyfile/mongo-keyfile", "--bind_ip_all", "sslMode", "disabled"]
+CMD ["mongod", "--replSet", "rs", "--keyFile", "/data/keyfile/mongo-keyfile", "--bind_ip_all", "--sslMode", "disabled"]
