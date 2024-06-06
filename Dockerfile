@@ -11,7 +11,9 @@ RUN curl -L https://github.com/redis-field-engineering/redis-connect-dist/releas
 RUN mvn install:install-file -Dfile=redis-connect-core-0.11.0.116-shaded.jar -DgroupId=com.redis.connect -DartifactId=redis-connect-core -Dversion=0.11.0.116 -Dpackaging=jar
 
 # Package the application
-RUN mvn package
+RUN mvn package install
+
+WORKDIR /app/load-data
 
 # Run the application
 CMD ["mvn", "exec:java"]
