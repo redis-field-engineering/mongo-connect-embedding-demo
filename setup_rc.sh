@@ -6,7 +6,6 @@ mvn install:install-file -Dfile=redis-connect-core-0.11.0.116-shaded.jar -Dgroup
 mvn package -DskipTests
 mkdir extlib
 cp custom-stage/target/custom-stage-1.0-SNAPSHOT.jar extlib
-exit 0
 
 if [ -z "$OPENAI_API_KEY" ]; then
     # If not set, prompt the user to enter it
