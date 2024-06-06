@@ -24,5 +24,5 @@ docker exec "${container_name}" mongosh --eval "rs.initiate({
  ]
 }, { force: true })" -u "${db_user}" -p "${db_password}"
 
-docker build -t stream-data .
-docker run --network redis-connect stream-data
+docker build -t load-data .
+docker run --network redis-connect load-data

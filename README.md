@@ -1,4 +1,4 @@
-# Redis Connect Gemfire test
+# Redis Connect Mongo Custom Embedding Stage
 
 ## Setup Redis Enterprise:
 
@@ -12,22 +12,6 @@ To run Mongo, run:
 
 ```bash
 ./setup_mongo.sh
-```
-
-## Build the App
-
-You can build the app with:
-```bash
-mvn clean package install
-```
-
-## Run the App
-
-To run the app just run:
-
-```bash
-docker build -t stream-data .
-docker run --network redis-connect stream-data
 ```
 
 ## Run Redis Connect:
@@ -54,9 +38,9 @@ To kick off the initial load job, use this _curl_ command
 curl -X POST "http://localhost:8282/connect/api/v1/job/transition/start/cdc-job/load" -H "accept: */*"
 ```
 
-## Stream Data from Gemfire to Redis
+## Stream Data from Mongo to Redis
 
-To Stream the data from gemfire to Redis, use this _curl_command:
+To Stream the data from mongo to Redis, use this _curl_command:
 
 ```bash
 curl -X POST "http://localhost:8282/connect/api/v1/job/transition/start/cdc-job/stream" -H "accept: */*"
