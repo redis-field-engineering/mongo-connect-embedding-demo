@@ -62,8 +62,9 @@ public class App
             messageDocuments.add(message.toDocument());
         }
 
+        System.out.println("Saving message documents...");
         messagesCollection.insertMany(messageDocuments);
-
+        System.out.println("Saved message documents");
         mongoClient.close();
     }
 
