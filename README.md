@@ -1,5 +1,8 @@
 # Redis Connect Mongo Custom Embedding Stage
 
+This example demonstrates how to stream data from MongoDB to Redis using Redis Connect and a custom embedding stage.
+To use this example you will need to have an OpenAI API account if you don't have one you can [sign up](https://platform.openai.com/signup) for one.
+
 ## Setup Redis Enterprise:
 
 ```bash
@@ -22,6 +25,8 @@ To Run Redis Connect run:
 ./setup_rc.sh
 ```
 
+This will prompt you for your OPENAI_API_KEY, which you can get from your OpenAI account.
+
 ## Configure Job In Redis Connect
 
 To configure the job in redis connect, run the following _curl_ command:
@@ -38,10 +43,4 @@ To kick off the initial load job, use this _curl_ command
 curl -X POST "http://localhost:8282/connect/api/v1/job/transition/start/cdc-job/load" -H "accept: */*"
 ```
 
-## Stream Data from Mongo to Redis
-
-To Stream the data from mongo to Redis, use this _curl_command:
-
-```bash
-curl -X POST "http://localhost:8282/connect/api/v1/job/transition/start/cdc-job/stream" -H "accept: */*"
-```
+When the job is done you can look at your Redis target database (the redis instance on port 14000) to see the JSON data with the embeddings.
