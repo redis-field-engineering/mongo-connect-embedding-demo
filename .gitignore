@@ -36,3 +36,5 @@ build/
 
 ### Mac OS ###
 .DS_Store
+redis-connect-core-0.11.0.116-shaded.jar
+extlib

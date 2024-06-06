@@ -11,10 +11,6 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
     public static void main( String[] args )
@@ -51,6 +47,23 @@ public class App
             collection.insertMany(customerDocuments);
         }
 
+        MongoCollection<Document> messagesCollection = database.getCollection("messages");
+
+        List<Document> messageDocuments = new ArrayList<>();
+
+        for (int i = 0; i < 10; i++) {
+            Message message = new Message(
+                    i+1,
+                    getRandomUsername(),
+                    getRandomMessage(),
+                    System.currentTimeMillis()
+            );
+
+            messageDocuments.add(message.toDocument());
+        }
+
+        messagesCollection.insertMany(messageDocuments);
+
         mongoClient.close();
     }
 
@@ -71,5 +84,15 @@ public class App
 
     private static String getRandomPhoneNumber() {
         return String.format("%03d-%03d-%04d", ThreadLocalRandom.current().nextInt(1000), ThreadLocalRandom.current().nextInt(1000), ThreadLocalRandom.current().nextInt(10000));
+    }
+
+    private static String getRandomUsername() {
+    String[] usernames = {"user1", "user2", "user3", "user4", "user5"};
+    return usernames[ThreadLocalRandom.current().nextInt(usernames.length)];
+}
+
+    private static String getRandomMessage() {
+        String[] messages = {"Hello", "Good morning", "Good afternoon", "Good evening", "Good night"};
+        return messages[ThreadLocalRandom.current().nextInt(messages.length)];
     }
 }

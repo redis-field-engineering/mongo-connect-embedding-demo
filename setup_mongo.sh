@@ -13,7 +13,7 @@ docker run --name mongodb -it --rm --privileged=true \
   -e MONGO_INITDB_DATABSE=testdb \
   -e MONGO_INITDB_ROOT_USERNAME="${db_user}" \
   -e MONGO_INITDB_ROOT_PASSWORD="${db_password}" \
-  -p 27017:27017 -d mongo-repl
+  -p 27017:27017 mongo-repl
 
 sleep 10
 

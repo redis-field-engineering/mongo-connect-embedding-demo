@@ -5,10 +5,13 @@
   <groupId>com.redis</groupId>
   <artifactId>stream-to-mongo</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
 
   <name>stream-to-mongo</name>
   <url>http://maven.apache.org</url>
+  <modules>
+    <module>custom-stage</module>
+  </modules>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -28,7 +31,6 @@
       <artifactId>mongodb-driver-sync</artifactId>
       <version>4.4.0</version>
     </dependency>
-
   </dependencies>
 
   <build>
