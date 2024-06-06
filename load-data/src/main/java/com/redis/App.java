@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
@@ -88,9 +88,9 @@ public class App
     }
 
     private static String getRandomUsername() {
-    String[] usernames = {"user1", "user2", "user3", "user4", "user5"};
-    return usernames[ThreadLocalRandom.current().nextInt(usernames.length)];
-}
+        String[] usernames = {"user1", "user2", "user3", "user4", "user5"};
+        return usernames[ThreadLocalRandom.current().nextInt(usernames.length)];
+    }
 
     private static String getRandomMessage() {
         String[] messages = {"Hello", "Good morning", "Good afternoon", "Good evening", "Good night"};
