@@ -51,7 +51,7 @@ public class App
 
         List<Document> messageDocuments = new ArrayList<>();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 100; i++) {
             Message message = new Message(
                     i+1,
                     getRandomUsername(),
