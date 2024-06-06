@@ -27,7 +27,7 @@
         <dependency>
             <groupId>com.redis.connect</groupId>
             <artifactId>redis-connect-core</artifactId>
-            <version>0.11.0-RC3.109</version>
+            <version>0.11.0.116</version>
         </dependency>
         <dependency>
             <groupId>org.mongodb</groupId>
