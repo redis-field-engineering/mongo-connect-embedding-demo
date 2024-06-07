@@ -23,7 +23,7 @@ public class App
 
         List<Document> messageDocuments = new ArrayList<>();
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 1000; i++) {
             Message message = new Message(
                     i+1,
                     getRandomUsername(),

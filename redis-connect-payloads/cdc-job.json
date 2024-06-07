@@ -38,7 +38,7 @@
     "tables": {
       "testdb.messages": {
         "initialLoad": {
-          "partitions": 1
+          "partitions": 2
         },
         "columns": [
           {"targetColumn": "id","sourceColumn": "_id", "targetKey": true}
