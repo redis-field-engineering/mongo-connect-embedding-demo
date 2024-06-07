@@ -49,6 +49,27 @@ curl -X POST "http://localhost:8282/connect/api/v1/job/transition/start/cdc-job/
 
 When the job is done you can look at your Redis target database (the redis instance on port 14000) to see the JSON data with the embeddings.
 
+### CDC job
+
+To test the CDC job you must first start streaming data to redis and then start the CDC job.
+
+#### Stream data to Redis
+
+Just use the following commands to build and run the stream-data to Redis.
+
+```bash
+docker build -t stream-data .
+docker run -w /app/stream-data --network redis-connect stream-data
+```
+
+#### Run CDC stream job
+
+You then have to start the CDC job by using the following cURL command (assuming you've already created the job using the cURL command above.)
+
+```bash
+curl -X POST "http://localhost:8282/connect/api/v1/job/transition/start/cdc-job/stream" -H "accept: */*"
+```
+
 ## How it works
 
 This example contains a [custom embedding](/custom-stage/src/main/java/com/redis/EmbeddingStage.java) which uses the OpenAI Embedding API to turn the message's `message` field into

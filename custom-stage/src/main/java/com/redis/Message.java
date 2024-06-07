@@ -18,7 +18,7 @@ public class Message {
     Document toDocument() {
         return new Document("id", id)
                 .append("username", username)
-                .append("message", "message")
+                .append("message", message)
                 .append("timestamp", timestamp);
     }
 }

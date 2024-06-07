@@ -12,6 +12,7 @@
   <modules>
     <module>custom-stage</module>
     <module>load-data</module>
+    <module>stream-data</module>
   </modules>
 
   <properties>
