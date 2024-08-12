@@ -1,0 +1,46 @@
+{
+  "partitions": 1,
+  "maxPartitionsPerClusterMember": 1,
+  "pipeline": {
+    "stages": [
+      {
+        "database": {
+          "credentialsDirectoryPath" : "/opt/redislabs/redis-connect/config/credentials",
+          "databaseURL": "redis://redis:12000",
+          "databaseType": "REDIS",
+          "customConfiguration": {
+            "redis.connection.sslEnabled": false,
+            "truststore": "/opt/redislabs/redis-connect/config/credentials/client-truststore.jks"
+          }
+        },
+        "index": 1,
+        "stageName": "REDIS_STREAM_SINK",
+        "checkpointStageIndicator": true,
+        "metricsEnabled" : true
+      }
+    ]
+  },
+  "source": {
+    "database": {
+      "credentialsDirectoryPath": "/opt/redislabs/redis-connect/config/credentials",
+      "databaseType": "MONGODB",
+      "databaseURL": "mongodb://redisconnect:Redis123@mongo:27017/testdb?authSource=admin",
+      "customConfiguration": {
+        "mongodb.connection.string": "mongodb://redisconnect:Redis123@mongo:27017/testdb?authSource=admin&replicaSet=rs",
+        "database.include.list": "testdb",
+        "collection.include.list": "testdb.messages"
+      }
+    },
+    "tables": {
+      "testdb.messages": {
+        "initialLoad": {
+          "partitions": 2
+        },
+        "columns": [
+          {"targetColumn": "id","sourceColumn": "_id", "targetKey": true}
+        ],
+        "autoConfigColumnsEnabled": true
+      }
+    }
+  }
+}
